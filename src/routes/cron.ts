@@ -15,8 +15,7 @@ class CronController extends BaseController {
         this.router.post( `${ this.path }/clear`, this.clear )
     }
 
-    public async clear( req: Request, res: Response ): Promise<Response> {
-
+    public clear = async ( req: Request, res: Response ): Promise<Response> => {
         this.logger.info( `Clearing old games ...` )
 
         let timestamp = new Date()

@@ -23,7 +23,7 @@ class GameController extends BaseController {
         this.router.post( `${ this.path }/end_round`, this.endRound )
 	}
 	
-    private async firstCard( req: Request, res: Response ): Promise<Response> {
+    private firstCard = async ( req: Request, res: Response ): Promise<Response> => {
 		const event = new EventParser( req.body )
 		const { id, room_id } = event.getData( 'id', 'room_id' )
 
@@ -42,7 +42,7 @@ class GameController extends BaseController {
 		} )		
 	}
 
-	private async joinGame( req: Request, res: Response ): Promise<Response> {
+	private joinGame = async ( req: Request, res: Response ): Promise<Response> => {
 		const action = new ActionParser( req.body )
 		const { fullName, roomCode } = action.getData( 'fullName', 'roomCode' )
 	
@@ -83,7 +83,7 @@ class GameController extends BaseController {
 
 	}
 
-	private async createGame( req: Request, res: Response ): Promise<Response> {
+	private createGame = async( req: Request, res: Response ): Promise<Response> => {
 		const action = new ActionParser( req.body )
 		const { fullName } = action.getData( 'fullName' )
 
@@ -136,7 +136,7 @@ class GameController extends BaseController {
 		}	
 	}
 
-	private async toggleCards( req: Request, res: Response ): Promise<Response> {
+	private toggleCards = async( req: Request, res: Response ): Promise<Response> => {
 		const action = new ActionParser( req.body )
 		const { roomCode, show } = action.getData( 'roomCode', 'show' )
 
@@ -155,7 +155,7 @@ class GameController extends BaseController {
 		})	
 	}
 
-	private async endRound( req: Request, res: Response ): Promise<Response> {
+	private endRound = async( req: Request, res: Response ): Promise<Response> => {
 		const action = new ActionParser( req.body )
 		const { roomCode } = action.getData( 'roomCode' )
 
