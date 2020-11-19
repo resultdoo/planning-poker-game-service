@@ -148,7 +148,7 @@ class GameController extends BaseController {
 			}
 		`
 	
-		await graphqlClient.request( query, { roomCode, showCards: show } )
+		await graphqlClient.request( query, { roomCode, showCards: ( show != null ) ? show : true } )
 	
 		return res.json({
 			success: true
